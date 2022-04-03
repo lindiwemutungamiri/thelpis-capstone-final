@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { View, Text, StyleSheet, FlatList, SafeAreaView} from 'react-native';
 import ListItem from './ListItem';
 import {SAMPLE_DATA} from '../components /data/sampleData';
@@ -10,6 +10,7 @@ import {
  
 import Chart from './Chart';  
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { getMarketData } from '../services/cryptoService';
 
 const ListHeader = () => (
     <>
@@ -22,12 +23,23 @@ const ListHeader = () => (
 
 const Prices = () => {
 
+  const [data, setData] = useState([]);
+
     const [selectedCoinData, setSelectedCoinData] = useState(null);
+
+    useEffect(() => {
+      const fetchMarketData = async () => {
+        const marketData = await getMarketData();
+        setData(marketData);
+      }
+  
+      fetchMarketData();
+    }, [])
 
 
     const bottomSheetModalRef = useRef(null);
 
-    const snapPoints = useMemo(() => ['50%'], []);
+    const snapPoints = useMemo(() => ['45%'], []);
   
     const openModal = (item) => {
       setSelectedCoinData(item);
@@ -40,7 +52,7 @@ const Prices = () => {
         <SafeAreaView style = {styles.container}>
             <FlatList
            keyExtractor={(item) => item.id}
-           data={SAMPLE_DATA}
+           data={data}
            renderItem={({ item }) => (
             <ListItem
                name = {item.name}

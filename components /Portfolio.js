@@ -6,7 +6,6 @@ import {Login} from '../screens/auth/pages/Login/Login';
 import { abi } from '../screens/MagicLogin/contract/abi';
 
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import Blockie from './Blockie';
 
 
 const Portfolio = () => {
