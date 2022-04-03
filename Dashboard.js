@@ -122,7 +122,7 @@ export default function Dashboard() {
                                 <Text
                                     style={{ color: focused ? "blue" : "gray", fontSize: 10 }}
                                 >
-                                    Charts
+                                    Markets
                                 </Text>
                             </View>
 
