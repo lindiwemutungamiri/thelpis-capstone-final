@@ -5,9 +5,11 @@ import {SAMPLE_DATA} from '../components /data/sampleData';
 import {
     BottomSheetModal,
     BottomSheetModalProvider,
+
   } from '@gorhom/bottom-sheet';
  
 import Chart from './Chart';  
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const ListHeader = () => (
     <>

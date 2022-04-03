@@ -1,13 +1,16 @@
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, Dimensions} from 'react-native'
 import React from 'react';
 import {ChartDot, ChartPath, ChartPathProvider, ChartYLabel} from '@rainbow-me/animated-charts';
+
+export const {width: SIZE} = Dimensions.get('window');
 
 
 const Chart = ({ currentPrice, logoUrl, name, symbol, priceChangePercentage7d, sparkline }) => {
 const priceChangeColor = priceChangePercentage7d > 0 ? '#34C759' : '#FF3B30';
 
     return (
-        <ChartPathProvider>
+      <ChartPathProvider data={{ points: sparkline, smoothingStrategy: 'bezier' }}>
+
     <View style = {styles.chartWrapper}>
 
         {/* These are the titles */}
@@ -30,8 +33,11 @@ const priceChangeColor = priceChangePercentage7d > 0 ? '#34C759' : '#FF3B30';
 
 
         </View>
+        <ChartPath height={SIZE / 2 } stroke="blue" width={SIZE}/>
+        <ChartDot style ={{backgoundColor: "blue"}}/>
     </View>
     </ChartPathProvider>
+
   )
 }
 
