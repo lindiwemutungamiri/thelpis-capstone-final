@@ -24,6 +24,7 @@ const Settings = (props) => {
     setUser('');
     navigation.navigate('Login');
   };
+  
   const [copiedText, setCopiedText] = useState('');
 
   const copyToClipboard = () => {

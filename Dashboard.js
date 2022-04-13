@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, View, Image,StyleSheet,SafeAreaView, ScrollView, TextInput, Pressable, Linking, ImageBackground, TouchableOpacity, Clipboard} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -14,6 +14,9 @@ import Settings from './components /Settings';
 import RootNavigation from './navigation/RootNavigation';
 import style from './screens/welcome/style';
 import Button from './components /Button/Button';
+import {magic, web3} from './screens/MagicLogin/magic';
+
+
   //hiding the title of the screen 
   const screenOptions = {
     headerShown: false,
@@ -65,31 +68,24 @@ function SettingsScreen({ navigation }) {
 
                     />
                       </View>
-         
-        {/* <View style={{flexDirection: "row", paddingTop: 20}}>
-            <Button 
-            style={styles.buttonText}
-            title="No"
-            onPress={() => navigation.navigate('Home')}
-            options={{tabBarStyle: { display: "none" }, }}
-            />
-            <Button
-            style={styles.buttonText}
-            title="Yes"
-            onPress={() => navigation.navigate('Details')}
-            options={{tabBarStyle: { display: "none" }, }}
-            />
-        </View> */}
         
       </View>
     );
   }
 
+
+
   function DetailsScreen() {
+    const [email, setEmail] = useState('');
+    const [user, setUser] = useState('');
+  
+    const logout = async () => {
+      await magic.user.logout();
+      setUser('');
+    };
     return (
+        logout(),
         <RootNavigation/>
-    
-     
     );
   }
 
