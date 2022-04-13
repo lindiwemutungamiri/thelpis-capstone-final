@@ -80,6 +80,8 @@ const Home = ({ navigation }: Props) => {
                         text="Receive Crypto"
                         disabled={false}
                         btnTextStyle={style.btnTextStyle2}
+                        onPress={() => navigation.navigate("Transfer")}
+
                     />
                     <View style={{ paddingHorizontal: 1 }}>
                         <Watchlist coinData={watchlistData} />

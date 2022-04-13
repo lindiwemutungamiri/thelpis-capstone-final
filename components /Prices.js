@@ -8,7 +8,6 @@ import {
 
   } from '@gorhom/bottom-sheet';
  
-import Chart from './Chart';  
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { getMarketData } from '../services/cryptoService';
 
@@ -41,10 +40,10 @@ const Prices = () => {
 
     const snapPoints = useMemo(() => ['45%'], []);
   
-    const openModal = (item) => {
-      setSelectedCoinData(item);
-      bottomSheetModalRef.current?.present();
-    }
+    // const openModal = (item) => {
+    //   setSelectedCoinData(item);
+    //   bottomSheetModalRef.current?.present();
+    // }
 
     return (
         <BottomSheetModalProvider>
@@ -60,7 +59,7 @@ const Prices = () => {
                currentPrice = {item.current_price}
                priceChangePercentage7d = {item.price_change_percentage_7d_in_currency}
                logoUrl = {item.image}
-               onPress={() => openModal(item)}
+               //onPress={() => openModal(item)}
 
                />
            )}

@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet,SafeAreaView, ScrollView, Text, View, TextInput, Pressable, Linking } from 'react-native';
+import { StyleSheet,SafeAreaView, ScrollView, Text, View, TextInput, Pressable, Linking, Image, ImageBackground, TouchableOpacity, Clipboard } from 'react-native';
 import {magic, web3} from '../screens/MagicLogin/magic';
 import {Login} from '../screens/auth/pages/Login/Login';
 import { abi } from '../screens/MagicLogin/contract/abi';
@@ -63,60 +63,155 @@ const Portfolio = () => {
     fetchBalance(user.publicAddress); // Update balance after gas fee paid for transaction
     setSendTxnBtnText('Send');
   }
+  const [copiedText, setCopiedText] = useState('');
 
-   // Update Smart Contract Message
-   const contractAddress = '0x1e1bF128A09fD30420CE9fc294C4266C032eF6E7';
-   const contract = new web3.eth.Contract(abi, contractAddress);
-   const [message, setMessage] = useState('...');
-   const [newMessage, setNewMessage] = useState('');
-   const [updateContractBtnDisabled, setUpdateContractBtnDisabled] = useState(false);
-   const [updateContractBtnText, setUpdateContractBtnText] = useState('Update');
-   const [updateContractTxnHash, setUpdateContractTxnHash] = useState('');
+  const copyToClipboard = () => {
+      Clipboard.setString(user.publicAddress);
 
-  const fetchContractMessage = () => contract.methods.message().call().then(setMessage);
+  };
 
-  const updateContractMessage = async () => {
-    if (!newMessage) return;
-    disableUpdateContractForm();
-    let { transactionHash } = await contract.methods.update(newMessage).send({ from: user.publicAddress });
-    setUpdateContractTxnHash(transactionHash);
-    enableUpdateContractForm();
+
+  const fetchCopiedText = async () =>{
+      const text = await Clipboard.getStringAsync();
+      setCopiedText(user.publicAddress);
+
   }
+  const [CopyAddressBtnText, setCopyAddressBtnText] = useState('Receive');
+ const [copyBtnDisabled, setcopyBtnDisabledBtnDisabled] = useState(false);
 
-  const disableUpdateContractForm = () => {
-    setUpdateContractBtnDisabled(true);
-    setUpdateContractTxnHash(''); // Clear link to previous transaction hash
-    setUpdateContractBtnText('Pending...');
-  }
 
-  const enableUpdateContractForm = () => {
-    setUpdateContractBtnDisabled(false);
-    setNewMessage(''); // Clear form input
-    fetchBalance(user.publicAddress); // Update balance after gas fee paid for transaction
-    fetchContractMessage(); // Show new value of the smart contract variable `message`
-    setUpdateContractBtnText('Update');
-  }
+
+  function renderHeader (){
+    return (
+        <View
+        style = {{
+            width: "100%",
+            height: 290,
+            ...styles.shadow
+
+
+        }}
+
+        >
+            <ImageBackground
+              source={require("../assets/icons/banner.png")}
+              resizeMode="cover"
+              style={{
+                  flex: 1,
+                  alignItems: "center"
+              }}
+              >
+                  {/* Header Bar  */}
+                  <View 
+                  style = {{
+                      marginTop: 20,
+                      width: "100%",
+                      alignItems: "flex-end",
+                      paddingHorizontal: 20
+                  }}
+                   >
+                       <TouchableOpacity
+                       style ={{
+                           width: 35,
+                           height: 35,
+                           alignItems: "center",
+                           justifyContent: "center"
+                       }}
+                       onPress = {() => console.log("Notifications on Pressed")}
+                       >
+
+                       </TouchableOpacity>
+
+
+                  </View>
+
+                  {/* Balance Section */}
+                  <View
+                  style ={{
+                      alignItems: "center",
+                      justifyContent: "center"
+
+                  }}
+                  >
+                      <Text style = {{color: "white",fontSize: 13}}>Your Portfolio Balance</Text>
+                      <Text style={{color: "white", fontSize: 20}}>{balance} ETH</Text>
+
+                  </View>
+
+                  <View>
+           <TouchableOpacity
+           style={{
+               flexDirection: "row",
+               alignItems: "center",
+               marginTop: 60,
+               marginHorizontal: 14,
+               paddingVertical: 7,
+               paddingHorizontal: 15,
+               backgroundColor: "white",
+               borderRadius: 20,
+               shadowColor: "#000",
+               shadowOffset:{
+                   width: 0,
+                   height: 4,
+               },
+               shadowOpacity: 0.30,
+               shadowRadius: 4.65,
+               elevation: 8
+
+
+           }}
+           onPress={() => copyToClipboard()} disabled={copyBtnDisabled}
+           > 
+        
+               <Image
+                  source={require("../assets/icons/lottie.webp")}
+                  style={{
+                      width: 30,
+                      height: 30
+                  }}
+
+               />
+               <View>
+                   <Text>Wallet Address</Text>
+                   <Text>{user.publicAddress}</Text>
+               </View>
+             
+
+           </TouchableOpacity>
+       </View>
+
+            </ImageBackground>
+          
+
+        </View>
+    )
+
+}
+
+
+
+
+
 
     return (
         <SafeAreaView>
+           <View>
+                 {renderHeader()}
+             </View>
 
             <View style={styles.view}>
-              <Text style={styles.header}>Send Crypto</Text>
+              <Text style={styles.header}>Transact</Text>
               <TextInput style={styles.input} value={toAddress} onChangeText={text => setToAddress(text)} placeholder="To..."></TextInput>
               <TextInput style={styles.input} value={amount} onChangeText={text => setAmount(text)} placeholder="Amount..."></TextInput>
               <Pressable style={styles.button} onPress={() => sendTransaction()} disabled={sendTxnBtnDisabled}><Text style={styles.buttonText}>{sendTxnBtnText}</Text></Pressable>
-              <Text style={styles.text}>{sendTxnHash && <Text onPress={() => Linking.openURL(`https://alfajores-blockscout.celo-testnet.org/tx/${sendTxnHash}`)}>View Transaction ↗️</Text>}</Text>
+              <Text style={styles.text}>{sendTxnHash && <Text onPress={() => Linking.openURL(`https://rinkeby.etherscan.io//tx/${sendTxnHash}`)}>View Transaction ↗️</Text>}</Text>
             </View>
+            <View style = {{paddingTop: 3 ,paddingVertical: 20}}>
+              <TouchableOpacity style={styles.button} onPress={() => copyToClipboard()} disabled={copyBtnDisabled}><Text style={styles.buttonText}>{CopyAddressBtnText}</Text></TouchableOpacity> 
 
-             {/* SMART CONTRACT */}
-             <View style={styles.view}>
-              <Text style={styles.header}>Contract Message</Text>
-              <Text style={styles.info}>{message}</Text>
-              <Text style={styles.header}>Update Message</Text>
-              <TextInput style={styles.input} value={newMessage} onChangeText={text => setNewMessage(text)} placeholder="New Message"></TextInput>
-              <Pressable style={styles.button} onPress={() => updateContractMessage()} disabled={updateContractBtnDisabled}><Text style={styles.buttonText}>{updateContractBtnText}</Text></Pressable>
-              <Text style={styles.text}>{updateContractTxnHash && <Text onPress={() => Linking.openURL(`https://alfajores-blockscout.celo-testnet.org/tx/${updateContractTxnHash}`)}>View Transaction ↗️</Text>}</Text>
-            </View>
+              </View>
+
+        
           
     </SafeAreaView>
 

@@ -39,6 +39,7 @@ const TopMovers: FC<TopMoversProps> = ({ coinData }) => {
 
 const styles = StyleSheet.create({
     topMoversText: {
+        color: "black",
         fontWeight: '600',
         fontSize: 21,
         marginTop: 32,

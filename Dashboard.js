@@ -2,11 +2,13 @@ import * as React from 'react';
 import { Text, View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { LogoutScreen } from './screens';
 import Home from './components /Home';
 import Portfolio from './components /Portfolio';
 import Prices from './components /Prices';
 import Transfer from './components /Transfer';
 import Settings from './components /Settings';
+import RootNavigation from './navigation/RootNavigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -155,6 +157,7 @@ export default function Dashboard() {
                         ),
                     }}
                 />
+              
             </Tab.Navigator>
         </NavigationContainer>
     );

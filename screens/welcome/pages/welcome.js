@@ -28,7 +28,7 @@ export default function Welcome(props) {
                             text="Get Started" disabled={false}
                             btnStyle={style.btnStyle}
                             btnTextStyle={style.btnTextStyle}
-                            onPress={() => navigation.navigate("CreateAccount")}
+                            onPress={() => navigation.navigate("OnboardingScreen")}
 
                         />
                         <Button
