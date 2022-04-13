@@ -51,6 +51,7 @@ export default function Login(props) {
               onChangeText={text => setEmail(text)}
               value={email}
               placeholder='Enter your email'
+              autoCapitalize='none'
             />
            
              <View style={style.btnView}>
