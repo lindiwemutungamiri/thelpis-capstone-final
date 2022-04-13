@@ -235,8 +235,8 @@ const Portfolio = () => {
 
               >
                   <Text style={{color: "white", fontSize: 20}}>Investing Safety</Text>
-                  <Text style={{color: "white", marginTop: 10,  fontSize: 13}}>To receive Crypto, please click on the copy address button below. 
-                      Then send it the copied address to the user trying to send you crypto. 
+                  <Text style={{color: "white", marginTop: 10,  fontSize: 13}}>To receive Crypto, please click on the Receive Crypto button below. 
+                      Then send the copied address to the user trying to send you crypto. 
                       Note: Only send Ethereum to this wallet address. 
                   </Text>
               </View>
@@ -261,8 +261,11 @@ const Portfolio = () => {
              {renderNotice()}
          </View>
              
-              <View style = {{paddingTop: 8 ,paddingVertical: 20}}>
+              <View style = {{paddingTop: 8 ,paddingVertical: 20, paddingBottom: 20}}>
               <TouchableOpacity style={styles.button} onPress={() => copyToClipboard()} disabled={copyBtnDisabled}><Text style={styles.buttonText}>{CopyAddressBtnText}</Text></TouchableOpacity> 
+
+              </View>
+              <View style = {{paddingTop: 8 ,paddingVertical: 20, paddingBottom: 60}}>
 
               </View>
 

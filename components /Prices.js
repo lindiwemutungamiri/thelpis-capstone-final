@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { View, Text, StyleSheet, FlatList, SafeAreaView} from 'react-native';
 import ListItem from './ListItem';
-import {SAMPLE_DATA} from '../components /data/sampleData';
 import {
     BottomSheetModal,
     BottomSheetModalProvider,
@@ -40,10 +39,6 @@ const Prices = () => {
 
     const snapPoints = useMemo(() => ['45%'], []);
   
-    // const openModal = (item) => {
-    //   setSelectedCoinData(item);
-    //   bottomSheetModalRef.current?.present();
-    // }
 
     return (
         <BottomSheetModalProvider>

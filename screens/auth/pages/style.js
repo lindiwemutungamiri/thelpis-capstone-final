@@ -55,7 +55,7 @@ export default StyleSheet.create({
     },
     btnView: {
         marginVertical: 20,
-        marginTop: 300, 
+        marginTop: 200, 
     },
     linkStyle: {
         fontSize: RFValue(14),

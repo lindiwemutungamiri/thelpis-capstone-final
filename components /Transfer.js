@@ -204,7 +204,7 @@ const Portfolio = () => {
               <TextInput style={styles.input} value={toAddress} onChangeText={text => setToAddress(text)} placeholder="To..."></TextInput>
               <TextInput style={styles.input} value={amount} onChangeText={text => setAmount(text)} placeholder="Amount..."></TextInput>
               <Pressable style={styles.button} onPress={() => sendTransaction()} disabled={sendTxnBtnDisabled}><Text style={styles.buttonText}>{sendTxnBtnText}</Text></Pressable>
-              <Text style={styles.text}>{sendTxnHash && <Text onPress={() => Linking.openURL(`https://rinkeby.etherscan.io//tx/${sendTxnHash}`)}>View Transaction ↗️</Text>}</Text>
+              <Text style={styles.text}>{sendTxnHash && <Text onPress={() => Linking.openURL(`https://rinkeby.etherscan.io//tx/${sendTxnHash}`)}>Sent! View Transaction ↗️</Text>}</Text>
             </View>
             <View style = {{paddingTop: 3 ,paddingVertical: 20}}>
               <TouchableOpacity style={styles.button} onPress={() => copyToClipboard()} disabled={copyBtnDisabled}><Text style={styles.buttonText}>{CopyAddressBtnText}</Text></TouchableOpacity> 

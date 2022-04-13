@@ -12,7 +12,11 @@ const TopMovers: FC<TopMoversProps> = ({ coinData }) => {
 
     return (
         <View style={styles.list}>
+            <View style={{paddingTop: 10}}>
             <Text style={styles.topMoversText}>Top Movers</Text>
+
+            </View>
+           
             <FlatList
                 data={coinData}
                 keyExtractor={(item) => item.id.toString()}
