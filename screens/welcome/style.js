@@ -46,6 +46,23 @@ export default StyleSheet.create({
         left: 20,
         right: 20,
     },
+    btnTextStyle3: {
+        color: colors.gold,
+        alignContent: "center",
+        alignItems: "center",
+        paddingRight: 80,
+        paddingTop: 20,
+    },
+ 
+    btnTextStyle4: {
+        color: colors.gold,
+        alignContent: "center",
+        alignItems: "center",
+        paddingRight: 80,
+        paddingTop: 20,
+        alignItems: "center",
+      
+    },
 
 
 });
