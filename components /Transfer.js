@@ -32,21 +32,24 @@ const Portfolio = () => {
   const [amount, setAmount] = useState('');
   const [sendTxnBtnDisabled, setSendTxnBtnDisabled] = useState(false);
   const [sendTxnBtnText, setSendTxnBtnText] = useState('Send');
+  const [cancelTxnBtnText, setCancelTxnBtnText] = useState('Cancel');
+  const [cancelTxnBtnDisabled, setcancelTxnBtnBtnDisabled] = useState(false);
+
+
   const [sendTxnHash, setSendTxnHash] = useState('');
 
-  // Submit a transaction to Celo network
-  const sendTransaction = async () => {
-    if (!amount || !toAddress) return;
-    disableSendTxnForm();
-    const { transactionHash } = await web3.eth.sendTransaction({
-      from: user.publicAddress,
-      to: toAddress,
-      value: web3.utils.toWei(amount)
-    });
-    setSendTxnHash(transactionHash);
-    enableSendTxnForm();
-  }
-
+  // Submit a transaction to the Ethereum network
+   const sendTransaction = async () => {
+     if (!amount || !toAddress) return ;
+     disableSendTxnForm();
+     const { transactionHash } = await web3.eth.sendTransaction({
+       from: user.publicAddress,
+       to: toAddress,
+       value: web3.utils.toWei(amount)
+     });
+     setSendTxnHash(transactionHash);
+     enableSendTxnForm();
+   }
 
   // Disable input form while the transaction is being confirmed
   const disableSendTxnForm = () => {
@@ -204,6 +207,7 @@ const Portfolio = () => {
               <TextInput style={styles.input} value={toAddress} onChangeText={text => setToAddress(text)} placeholder="To..."></TextInput>
               <TextInput style={styles.input} value={amount} onChangeText={text => setAmount(text)} placeholder="Amount..."></TextInput>
               <Pressable style={styles.button} onPress={() => sendTransaction()} disabled={sendTxnBtnDisabled}><Text style={styles.buttonText}>{sendTxnBtnText}</Text></Pressable>
+              {/* <Pressable style={styles.button} onPress={() => enableSendTxnForm()} disabled={cancelTxnBtnDisabled}><Text style={styles.buttonText}>{cancelTxnBtnText}</Text></Pressable> */}
               <Text style={styles.text}>{sendTxnHash && <Text onPress={() => Linking.openURL(`https://rinkeby.etherscan.io//tx/${sendTxnHash}`)}>Sent! View Transaction ↗️</Text>}</Text>
             </View>
             <View style = {{paddingTop: 3 ,paddingVertical: 20}}>
