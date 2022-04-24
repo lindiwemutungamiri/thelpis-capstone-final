@@ -7,7 +7,15 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "setupFiles": ["./jestSetupFile.js"],
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg)"
+    ]
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^4",
@@ -25,6 +33,7 @@
     "expo-linear-gradient": "~11.0.3",
     "expo-status-bar": "~1.2.0",
     "expo-web-browser": "^10.1.1",
+    "jest-expo": "^44.0.1",
     "moment": "^2.29.2",
     "native-base": "^3.4.1",
     "node-libs-browser": "^2.2.1",
@@ -42,11 +51,15 @@
     "react-native-web": "0.17.1",
     "react-native-webview": "^11.18.0",
     "react-redux": "^7.2.6",
+    "react-test-renderer": "17",
     "redux-thunk": "^2.4.1",
+    "validate.js": "^0.13.1",
     "web3": "^1.7.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "@testing-library/react-native": "^9.1.0",
+    "jest": "^26.6.3"
   },
   "private": true
 }
