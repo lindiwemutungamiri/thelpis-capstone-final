@@ -7,8 +7,14 @@ It also draws on personal experiences with existing wallets and the challenges f
 The project scope is limited to the sending, receiving, and storing of cryptocurrencies and does not focus on buying and selling since implementing payment gateways in Web 3.0 decentralized apps is complex and requires a lot of resources and funding. The result is a secure non-custodial cryptocurrency wallet named Thelpis that allows users to send, receive, and store cryptocurrencies.
 We conclude that the functional requirements for Thelpis are feasible within the scope of this applied capstone project, and we build the platform over the proposed project timeline.
 
-<img src = "assets/icons/loginImage.png" width =200>
+<p float="left">
+  <img src="/assets/icons/loginImage.png" width="200" />
+  <img src="assets/icons/HomeImage.png" width="200" /> 
+  <img src="/assets/icons/PorfolioImage.png" width="200" />
+</p>
 
-![](assets/icons/loginImage.png)
-![](assets/icons/HomeImage.png)
-![](assets/icons/PorfolioImage.png)
+# ![](assets/icons/loginImage.png)
+
+# ![](assets/icons/HomeImage.png)
+
+# ![](assets/icons/PorfolioImage.png)
