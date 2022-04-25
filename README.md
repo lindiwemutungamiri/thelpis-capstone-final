@@ -8,14 +8,14 @@ The project scope is limited to the sending, receiving, and storing of cryptocur
 We conclude that the functional requirements for Thelpis are feasible within the scope of this applied capstone project, and we build the platform over the proposed project timeline.
 
 <p float="left">
-  <img src="/assets/icons/loginImage.png" width="300" />
-  <img src="assets/icons/HomeImage.png" width="300" /> 
-  <img src="/assets/icons/PortfolioImage.png" width="300" />
+  <img src="/assets/icons/loginImage.png" width="220" />
+  <img src="assets/icons/HomeImage.png" width="220" /> 
+  <img src="/assets/icons/PortfolioImage.png" width="220" />
 
 </p>
 
 <p float="left">
-  <img src="/assets/icons/TransferImage.png" width="300" />
-  <img src="assets/icons/MarketsImage.png" width="300" /> 
-    <img src="assets/icons/LogoutImage.png" width="300" /> 
+  <img src="/assets/icons/TransferImage.png" width="220" />
+  <img src="assets/icons/MarketsImage.png" width="220" /> 
+    <img src="assets/icons/LogoutImage.png" width="220" /> 
 </p>
