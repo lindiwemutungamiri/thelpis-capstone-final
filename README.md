@@ -9,11 +9,13 @@ We conclude that the functional requirements for Thelpis are feasible within the
 
 <p float="left">
   <img src="/assets/icons/loginImage.png" width="200" />
+    <img src="/assets/icons/PortfolioImage.png" width="100" />
+
   <img src="assets/icons/HomeImage.png" width="200" /> 
-  <img src="/assets/icons/PorfolioImage.png" width="200" />
+  <img src="/assets/icons/PortfolioImage.png" width="100" />
 </p>
 
 <p float="left">
-  <img src="/assets/icons/TransferImage.png" width="200" />
+  <img src="/assets/icons/TransferImage.pngg" width="200" />
   <img src="assets/icons/MarketsImage.png" width="200" /> 
 </p>
