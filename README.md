@@ -13,8 +13,7 @@ We conclude that the functional requirements for Thelpis are feasible within the
   <img src="/assets/icons/PorfolioImage.png" width="200" />
 </p>
 
-# ![](assets/icons/loginImage.png)
-
-# ![](assets/icons/HomeImage.png)
-
-# ![](assets/icons/PorfolioImage.png)
+<p float="left">
+  <img src="/assets/icons/TransferImage.png" width="200" />
+  <img src="assets/icons/MarketsImage.png" width="200" /> 
+</p>
