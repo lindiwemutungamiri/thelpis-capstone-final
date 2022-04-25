@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders button across all screens 1`] = `
+<View
+  accessible={true}
+  focusable={false}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "alignSelf": "center",
+      "backgroundColor": "#0B0B45",
+      "borderRadius": 10,
+      "flexDirection": "row",
+      "height": 98,
+      "justifyContent": "center",
+      "opacity": 1,
+      "width": "100%",
+    }
+  }
+/>
+`;
